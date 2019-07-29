@@ -7,7 +7,7 @@ var cardsGroup = [[], [], [], [], [], [], [], []];
 for (var i = 0; i < category.length; i++) {
     for (var j = 1; j <= 13; j++) {
         var id = category[i] + j;
-        var bg = "background-image: url(../img/cards/" + id + ".png)";
+        var bg = "background-image: url(./img/cards/" + id + ".png)";
         var card = {
             id: id,
             bg: bg,
