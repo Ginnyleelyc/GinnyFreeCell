@@ -1,0 +1,145 @@
+html, body{
+    height: 100%;
+}
+body{
+    position: relative;
+    background-color: #C8D6C9;
+    font-family: Montserrat;
+    color: #fff;
+    &:after{
+        content: "FREECELL";
+        position: absolute;
+        bottom: 50px;
+        right:  50px;
+        z-index: -1;
+        color: rgba(0,0,0,0.1);
+        font-size: 70px;
+    }
+}
+.text-gray{
+    color: rgba(0,0,0,0.2)
+}
+.text-green{
+    color: #88A38A;
+}
+.side{
+    max-height: 100vh;
+    @media (min-width: 992px) and (max-width: 1199.98px) { 
+        min-height: 80vh;
+     }
+}
+.action{
+    .btn{
+        border: 3px solid;
+        padding: 10px 15px;
+        white-space:nowrap;
+    }
+}
+.bottom-grid{
+    display: grid;
+    grid-template-columns:repeat(8,1fr)
+}
+.cards-container{
+    width: 115px;
+    height: 170px;
+    background: transparent; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cards{
+    width: 110px;
+    height: 165px;
+    background-size: 110px 165px;
+    background-repeat: no-repeat; 
+}
+.card-border{
+    border: 2px solid rgba(112,112,112,0.45);
+    border-radius: 10px;
+}
+.cards-group{
+    position: relative;
+    &:before{
+        content:"";
+        width: 110px;
+        height: 165px;
+        position: absolute;
+        top:0;
+        border: 2px solid rgba(112,112,112,0.15);
+        border-radius: 10px;
+        z-index: -1;
+    }
+    & > div:not(:first-child) {
+        margin-top: -120px;
+    }
+
+}
+.card-spade{
+    width: 115px;
+    height: 170px;
+    background: transparent;
+    background-image: url(../img/spade.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    
+}
+.card-diamond{
+    width: 115px;
+    height: 170px;
+    background: transparent;
+    background-image: url(../img/diamond.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    
+}
+.card-club{
+    width: 115px;
+    height: 170px;
+    background: transparent;
+    background-image: url(../img/club.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    
+}
+.card-heart{
+    width: 115px;
+    height: 170px;
+    background: transparent;
+    background-image: url(../img/heart.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    
+}
+.modal-btngroup{
+    width: 80%;
+    margin: auto;
+    .btn{
+        border: 3px solid;
+        padding: 10px 15px;
+        white-space:nowrap;
+    }
+}
+#winModal{
+    img{
+        width: 300px;
+        margin: 0 auto;
+    }
+}
+
+//drag
+[draggable="true"] {
+  /*
+   To prevent user selecting inside the drag source
+  */
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.dragging {
+    opacity:0.1;
+}

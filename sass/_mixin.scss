@@ -1,0 +1,25 @@
+//RWD
+$pc:1024px;
+$pad:768px;
+$pad-down:767px;
+$iphone:568px;
+$mobile:480px;
+$iphone5:320px;
+@mixin rwd($width){
+	@media (max-width: $width){
+		@content
+	}
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+@mixin hide-text{
+	text-indent: 110%;
+	white-space: nowrap;
+	overflow: hidden;
+}

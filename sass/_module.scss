@@ -1,0 +1,62 @@
+.button {
+    display: inline-block;
+    font-family: PingFangTC-Regular;
+    font-size: 14px;
+    padding: 6px 21px;
+    border-radius: 3px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.bt-reset {
+    background: rgba(0, 0, 0, 0.35);
+
+    &:hover,
+    &:focus {
+        background-color: #5A5A5B;
+    }
+}
+
+.bt-submit {
+    background: #F56C23;
+
+    &:hover,
+    &:focus {
+        background-color: #FF3115;
+    }
+}
+
+.bt-list {
+    float: right;
+    margin-top: 22px;
+
+    li {
+        display: inline-block;
+        padding-left: 11px;
+    }
+}
+
+.bt-sm {
+    display: inline-block;
+    width: 36px;
+    line-height: 32px;
+    background-color: #3D1101;
+    text-align: center;
+}
+
+.bt-lg {
+    display: inline-block;
+    font-family: MicrosoftJhengHeiRegular;
+    font-size: 16px;
+    color: #FF5E45;
+    border: 2px solid #FF5E45;
+    border-radius: 3px;
+    width: 90%;
+    line-height: 22px;
+    transition: all 0.3s;
+    &:hover,
+    &:focus{
+        background-color: white;
+       
+    }
+}

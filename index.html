@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FreeCell</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/all.css">
+
+</head>
+
+<body>
+  <div class="container-fluid pt-5 px-3">
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="d-flex flex-lg-column justify-content-between h-100 side">
+          <div class="action">
+            <button class="btn btn-outline-light rounded-pill redo"><i class="fas fa-redo-alt"></i> REDO</button>
+            <button class="btn btn-outline-light rounded-pill my-3 " data-toggle="modal" data-target="#confirmModal"><i class="fas fa-sync-alt"></i> NEW GAME</button>
+            <button class="btn btn-outline-light rounded-pill pause" data-toggle="modal" data-target="#pauseModal" data-backdrop="static"><i class="fas fa-pause"></i> PAUSE</button>
+          </div>
+          <div class="detail">
+            <div class="d-flex justify-content-between pb-3">
+              <span class="text-left mr-3">SCORE</span>
+              <span class="text-right text-gray" id="score-num">0</span>
+            </div>
+            <div class="d-flex justify-content-between pb-3">
+              <span class="text-left mr-3">TIME</span>
+              <span class="text-right text-gray" id="time-num">00:00</span>
+            </div>
+            <div class="d-flex justify-content-between pb-3">
+              <span class="text-left mr-3">MOVES</span>
+              <span class="text-right text-gray" id="moves-num">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-10">
+        
+        <div class="top d-flex justify-content-between">
+          <div class="temporary d-flex">
+            <div class="cards-container card-border mr-3" data-role="drag-drop-container" data-container="temporary"></div>
+            <div class="cards-container card-border mr-3" data-role="drag-drop-container" data-container="temporary"></div>
+            <div class="cards-container card-border mr-3" data-role="drag-drop-container" data-container="temporary"></div>
+            <div class="cards-container card-border mr-3" data-role="drag-drop-container" data-container="temporary"></div>
+          </div>
+          <!-- <div><img src="/img/kingM.png"></div> -->
+          <div class="correct d-flex"> 
+            <div class="mr-3 card-spade card-border"   data-role="drag-drop-container" data-container="card-spade"></div>
+            <div class="mr-3 card-diamond card-border" data-role="drag-drop-container" data-container="card-diamond"></div>
+            <div class="mr-3 card-club card-border"    data-role="drag-drop-container" data-container="card-club"></div>
+            <div class="mr-3 card-heart card-border"   data-role="drag-drop-container" data-container="card-heart"></div>
+          </div>
+        </div>
+        <div class="bottom-grid mt-5">
+          
+        </div>
+
+
+    </div>
+
+    <!-- Modal pause-->
+    <div class="modal fade" id="pauseModal" tabindex="-1" role="dialog" >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body px-4 py-5">
+            <h3 class="text-green display-3 text-center mb-4">FREECELL</h3>
+            <div class="modal-btngroup">
+              <button class="btn btn-outline-secondary btn-block rounded-pill newGame">QUICK and START A NEW GAME</button>
+              <button class="btn btn-outline-secondary btn-block rounded-pill my-3 restart">RESTART THIS GAME</button>
+              <button class="btn btn-outline-secondary btn-block rounded-pill keepPlay">KEEP PLAYING</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal win-->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+          <div class="modal-body"> 
+            <h3 class="text-green h1 text-center mb-4">Do you want to restart the game?</h3>
+            <div class="modal-btngroup text-center">
+              <button class="btn btn-outline-info px-5 rounded-pill newGame">YES !</button>
+              <button class="btn btn-outline-secondary px-5 rounded-pill" data-dismiss="modal">NO !</button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <!-- Modal win-->
+    <div class="modal fade" id="winModal" tabindex="-1" role="dialog" >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body px-4 py-5">
+            <h3 class="text-green display-3 text-center">WIN !</h3>
+            <img src="img/kings.png" class="d-block my-4">
+            <div class="modal-btngroup">
+              <button class="btn btn-outline-secondary btn-block rounded-pill">QUICK and START A NEW GAME</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+
+
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+  <script src="js/all.js"></script>
+</body>
+
+</html>
